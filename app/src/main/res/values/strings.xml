@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">foodApplication</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image">Image</string>
+    <string name="plus">+</string>
+    <string name="sepet">Sepet</string>
+    <string name="sepete_ekle">Sepete Ekle</string>
+    <string name="detail_text">Hazırlanma Süresi: 15-25 dk</string>
+    <string name="odemeAdiminaGec">Ödeme Adımına Geç</string>
+    <string name="toplam">Toplam:</string>
+    <string name="plusbutton">+</string>
+    <string name="currency">₺</string>
+    <string name="card">CARD</string>
+    <string name="adet">Adet</string>
+    <string name="kullanici_adi">zehragunes</string>
+</resources>

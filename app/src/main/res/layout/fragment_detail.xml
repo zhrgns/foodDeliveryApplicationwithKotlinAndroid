@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <variable
+            name="detailFragmentObject"
+            type="com.example.foodapplication.ui.fragment.DetailFragment" />
+        <variable
+            name="yemeklerObject"
+            type="com.example.foodapplication.data.entity.Yemekler" />
+        <variable
+            name="countProduct"
+            type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.DetailFragment">
+
+        <Button
+            android:id="@+id/buttonAddToCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/yellow"
+            android:onClick="@{() -> detailFragmentObject.addProductToCard(yemeklerObject, countProduct)}"
+            android:padding="16dp"
+            android:text="@string/sepete_ekle"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buttonAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/light_gray"
+            android:onClick="@{() -> detailFragmentObject.onIncrementButtonClick(countProduct)}"
+            android:text="@string/plusbutton"
+            android:textColor="@color/gray"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/buttonAddToCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textViewCountProduct" />
+
+        <Button
+            android:id="@+id/buttonRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/light_gray"
+            android:text="-"
+            android:textColor="@color/gray"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/buttonAddToCard"
+            app:layout_constraintEnd_toStartOf="@+id/textViewCountProduct"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewCountProduct"
+            android:layout_width="16dp"
+            android:layout_height="30dp"
+            android:text="@{countProduct}"
+            android:textColor="@color/gray"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonRemove"
+            app:layout_constraintEnd_toStartOf="@+id/buttonAdd"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonRemove"
+            app:layout_constraintTop_toTopOf="@+id/buttonRemove" />
+
+        <ImageView
+            android:id="@+id/imageViewProductDetail"
+            android:layout_width="0dp"
+            android:layout_height="320dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/image"
+            android:elevation="2dp"
+            android:src="@drawable/product_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewDetailTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:text="@{yemeklerObject.yemek_adi}"
+            android:textColor="@color/orange"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textViewDetailDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewProductDetail" />
+
+        <TextView
+            android:id="@+id/textViewDetailDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/detail_text"
+            android:textColor="@color/material_dynamic_neutral50"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDetailTitle" />
+
+        <TextView
+            android:id="@+id/textViewDetailPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@{yemeklerObject.yemek_fiyat}"
+            android:textColor="@color/gray"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonRemove"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/buttonRemove" />
+
+        <TextView
+            android:id="@+id/textViewDetailCurrency"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/currency"
+            android:textColor="@color/gray"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewDetailPrice"
+            app:layout_constraintStart_toEndOf="@+id/textViewDetailPrice"
+            app:layout_constraintTop_toTopOf="@+id/textViewDetailPrice" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
